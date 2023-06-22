@@ -14,7 +14,8 @@ const { expect } = require('@playwright/test');
       'network': true,
       'video': true,
       'console': true,
-      'smartUIProjectName': 'Playwright-SmartUI-Project',
+      'smartUIProjectName': 'Playwright-SmartUI-Project-21-jun',
+      // 'smartUIBuildName': "Playwright Build",
       'smartUIBaseline': false
     }
   }
@@ -37,7 +38,7 @@ const { expect } = require('@playwright/test');
 
   // Add the following command in order to take screenshot in SmartUI
   await page.evaluate((_) => {},
-    `lambdatest_action: ${JSON.stringify({ action: 'smartui.takeScreenshot', arguments: { fullPage: true, screenshotName: 'search-lambdatest' }
+    `lambdatest_action: ${JSON.stringify({ action: 'smartui.takeScreenshot', arguments: { fullPage: true, screenshotName: 'search-lambdatest1' }
     })}`) // Add a relevant screenshot name here
 
   const element = await page.$('[id="sb_form_q"]')
@@ -56,16 +57,16 @@ const { expect } = require('@playwright/test');
     await page.evaluate(_ => {}, `lambdatest_action: ${JSON.stringify({ action: 'setTestStatus', arguments: { status: 'failed', remark: 'Title not matched' } })}`)
   }
 
-  await page.goto("https://www.lambdatest.com")
+  // await page.goto("https://www.lambdatest.com")
 
-  await page.evaluate((_) => {},
-    `lambdatest_action: ${JSON.stringify({ action: 'smartui.takeScreenshot', arguments: { fullPage: true, screenshotName: 'lambdatest-website' }
-    })}`) 
-  await page.goto("https://www.lambdatest.com/support/api-doc/")
+  // await page.evaluate((_) => {},
+  //   `lambdatest_action: ${JSON.stringify({ action: 'smartui.takeScreenshot', arguments: { fullPage: true, screenshotName: 'lambdatest-website1' }
+  //   })}`) 
+  // await page.goto("https://www.lambdatest.com/support/api-doc/")
 
-  await page.evaluate((_) => {},
-    `lambdatest_action: ${JSON.stringify({ action: 'smartui.takeScreenshot', arguments: { fullPage: true, screenshotName: 'api-doc' }
-    })}`) 
+  // await page.evaluate((_) => {},
+  //   `lambdatest_action: ${JSON.stringify({ action: 'smartui.takeScreenshot', arguments: { fullPage: true, screenshotName: 'api-doc1' }
+  //   })}`) 
 
     await browser.close()
 })()
